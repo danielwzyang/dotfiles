@@ -136,7 +136,7 @@ set ignorecase
 set smartcase
 set noshowmode
 
-noremap <C-b> :vert bo term<CR>
+noremap <C-b> :vert term<CR>
 
 noremap <C-n> :Files<CR> 
 
