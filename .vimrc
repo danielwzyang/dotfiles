@@ -113,6 +113,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
+Plug 'prabirshrestha/asyncomplete.vim'
+
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 set formatoptions-=c formatoptions-=r formatoptions-=o
@@ -137,6 +141,7 @@ set smartcase
 set noshowmode
 
 noremap <C-b> :vert term<CR>
+noremap <C-s> :update<CR>
 
 noremap <C-n> :Files<CR> 
 
@@ -144,9 +149,18 @@ noremap <S-u> :ALEGoToDefinition<CR>
 let g:ale_linters = {
     \ 'rust': ['analyzer', 'cargo'],
 \ }
-
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+let g:asyncomplete_auto_popup = 1
+set completeopt=menuone,noinsert,noselect
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 set termguicolors
 syntax on
-colorscheme catppuccin_mocha
+set background=dark
+colorscheme gruvbox
+let g:lightline = {'colorscheme': 'gruvbox'}
+
+let &t_EI = "\e[6 q"
