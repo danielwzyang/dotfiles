@@ -63,7 +63,6 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'sheerun/vim-polyglot'
 
-
 call plug#end()
 
 set formatoptions-=c formatoptions-=r formatoptions-=o
@@ -89,6 +88,7 @@ set noshowmode
 
 noremap <C-b> :vert term<CR>
 noremap <C-s> :update<CR>
+noremap <C-f> :Rg<CR>
 
 noremap <C-n> :Files<CR> 
 
