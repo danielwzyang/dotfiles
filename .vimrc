@@ -58,10 +58,13 @@ Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim' 
 
 Plug 'itchyny/lightline.vim'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+" Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'morhetz/gruvbox'
 
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'sheerun/vim-polyglot'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -103,9 +106,13 @@ set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+let g:ale_open_list = 1
 
 set termguicolors
 syntax on
 set background=dark
-colorscheme catppuccin_mocha
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+colorscheme gruvbox
+let g:lightline = {'colorscheme': 'gruvbox'}
+
+command MD MarkdownPreview
+command MDS MarkdownPreviewStop
