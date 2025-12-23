@@ -95,8 +95,6 @@ noremap <C-s> :update<CR>
 noremap <C-f> :Rg<CR>
 noremap <C-n> :Files<CR>
 
-noremap <S-u> :ALEGoToDefinition<CR>
-
 let g:ale_linters = {
     \ 'c': ['clangd'],
     \ 'rust': ['analyzer'],
