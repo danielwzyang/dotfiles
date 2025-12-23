@@ -53,8 +53,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
 
+Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 
