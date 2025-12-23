@@ -34,7 +34,7 @@ endif
 
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 if has('langmap') && exists('+langremap')
@@ -55,20 +55,21 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'dense-analysis/ale'
 
-Plug 'rust-lang/rust.vim' 
-
-Plug 'itchyny/lightline.vim'
-" Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'morhetz/gruvbox'
-
-Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'sheerun/vim-polyglot'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+
+Plug 'iamcco/markdown-preview.nvim',
+      \ { 'do': { -> mkdp#util#install() },
+      \   'for': ['markdown', 'vim-plug'] }
 
 call plug#end()
 
-set formatoptions-=c formatoptions-=r formatoptions-=o
+set formatoptions-=c
+set formatoptions-=r
+set formatoptions-=o
 
 set wrap
 set ttyfast
@@ -92,27 +93,36 @@ set noshowmode
 noremap <C-b> :vert term<CR>
 noremap <C-s> :update<CR>
 noremap <C-f> :Rg<CR>
+noremap <C-n> :Files<CR>
 
-noremap <C-n> :Files<CR> 
+noremap <S-u> :ALEGoToDefinition<CR>
 
-noremap <S-u> :ALEGoToDefinition<CR> 
 let g:ale_linters = {
-    \ 'rust': ['analyzer', 'cargo'],
+    \ 'c': ['clangd'],
+    \ 'rust': ['analyzer'],
 \ }
+
 let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 100
+let g:ale_completion_autoimport = 1
+
 set omnifunc=ale#completion#OmniFunc
-let g:asyncomplete_auto_popup = 1
 set completeopt=menuone,noinsert,noselect
+
+" tab nav in completion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-let g:ale_open_list = 1
+" completion with enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 set termguicolors
 syntax on
 set background=dark
 colorscheme gruvbox
-let g:lightline = {'colorscheme': 'gruvbox'}
+
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox'
+      \ }
 
 command MD MarkdownPreview
 command MDS MarkdownPreviewStop
