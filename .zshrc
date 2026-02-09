@@ -10,7 +10,7 @@ alias py='python'
 
 bindkey '^S' undefined-key
 
-clangr() {
+clr() {
   # compile
   clang -std=c11 -Wall -Wextra -Wpedantic -O0 -g "$@" && \
   # run the program with stdin from whatever pipe/redirect you used
