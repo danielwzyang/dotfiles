@@ -66,6 +66,8 @@ Plug 'iamcco/markdown-preview.nvim',
       \ { 'do': { -> mkdp#util#install() },
       \   'for': ['markdown', 'vim-plug'] }
 
+Plug 'preservim/vim-indent-guides'
+
 call plug#end()
 
 set formatoptions-=c
