@@ -103,6 +103,8 @@ let g:ale_linters = {
     \ 'rust': ['analyzer'],
 \ }
 
+let g:ale_c_clang_options = '-std=c11 -Wall -Wextra -Wpedantic -O0 -g'
+
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 100
 let g:ale_completion_autoimport = 1
