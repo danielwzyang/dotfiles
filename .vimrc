@@ -93,7 +93,7 @@ set ignorecase
 set smartcase
 set noshowmode
 
-noremap <C-b> :vert term<CR>
+noremap <C-b> :botright term<CR>
 noremap <C-s> :update<CR>
 noremap <C-f> :Rg<CR>
 noremap <C-n> :Files<CR>
@@ -118,10 +118,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " completion with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-set termguicolors
+set notermguicolors
 syntax on
 set background=dark
 colorscheme gruvbox
+set shell=/bin/zsh
 
 let g:lightline = {
       \ 'colorscheme': 'gruvbox'
