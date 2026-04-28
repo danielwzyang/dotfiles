@@ -1,11 +1,14 @@
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="minimal"
+ZSH_THEME="daniel"
 
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.cargo/env
 
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias py='python'
+alias copy='xclip -selection clipboard'
 
 bindkey '^S' undefined-key
 
@@ -18,3 +21,8 @@ clr() {
   rm ./a.out
 }
 
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
+setopt hist_ignore_dups
+setopt share_history        # sync history across sessions
