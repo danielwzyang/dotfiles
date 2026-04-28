@@ -5,7 +5,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias py='python'
 
 bindkey '^S' undefined-key
