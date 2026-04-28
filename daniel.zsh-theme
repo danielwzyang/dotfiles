@@ -8,7 +8,7 @@ _git_prompt() {
   ref=$(command git rev-parse --short HEAD 2>/dev/null) || return
   local branch="${ref#refs/heads/}"
   [[ -n $(command git status --porcelain 2>/dev/null) ]] && branch="${branch}*"
-  echo " [${branch}]"
+  echo " %{$fg[yellow]%}[${branch}]%{$reset_color%}"
 }
 
 # cyan user
