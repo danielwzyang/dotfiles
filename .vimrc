@@ -118,10 +118,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " completion with enter
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
+" fix weird java syntax error
+let g:java_ignore_javadoc = 1
+
 set notermguicolors
-syntax on
 set background=dark
 colorscheme gruvbox
+syntax on
 set shell=/bin/zsh
 
 let g:lightline = {
@@ -132,3 +135,4 @@ command MD MarkdownPreview
 command MDS MarkdownPreviewStop
 
 set clipboard=unnamedplus
+
