@@ -130,3 +130,5 @@ let g:lightline = {
 
 command MD MarkdownPreview
 command MDS MarkdownPreviewStop
+
+set clipboard=unnamedplus
