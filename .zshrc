@@ -6,8 +6,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.cargo/env
 
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias py='python'
 alias copy='xclip -selection clipboard'
 
 bindkey '^S' undefined-key
