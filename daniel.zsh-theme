@@ -8,7 +8,7 @@ _git_prompt() {
   ref=$(command git rev-parse --short HEAD 2>/dev/null) || return
   local branch="${ref#refs/heads/}"
   [[ -n $(command git status --porcelain 2>/dev/null) ]] && branch="${branch}*"
-  echo " %{$fg[yellow]%}[${branch}]%{$reset_color%}"
+  echo "%{$fg[yellow]%}[${branch}]%{$reset_color%}"
 }
 
 # cyan user
@@ -22,6 +22,6 @@ _path="%{$fg_bold[green]%}%(4~|../%2~|%~)%{$reset_color%}"
 setopt prompt_subst
 # if exit code is not zero, print it
 # after that just print normal stuff
-PROMPT='%(?..%{$fg_bold[red]%}%? %{$reset_color%})${_user}${_host} ${_path}$(_git_prompt) $ '
+PROMPT='${_user}${_host} ${_path} $(_git_prompt) $ '
 # put a :( at the end of line if error
-RPROMPT='%(?..%{$fg_bold[red]%}:(%{$reset_color%})'
+RPROMPT='%(?..%{$fg_bold[red]%}%? :(%{$reset_color%})'
