@@ -19,6 +19,13 @@ clr() {
   rm ./a.out
 }
 
+asm() {
+    nasm -f elf64 -o temp.o "$@" && \
+    ld temp.o && \
+    ./a.out "$@" <&0 ; \
+    rm -f ./a.out temp.o
+}
+
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history

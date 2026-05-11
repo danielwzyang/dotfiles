@@ -5,3 +5,15 @@
 [user]
 	email = 60305796+danielwzyang@users.noreply.github.com
 	name = Daniel Yang
+[push]
+	default = current
+	autoSetupRemote = true
+[pull]
+	default = current
+    rebase = true
+[fetch]
+    prune = true
+[rebase]
+    autoStash = true
+[alias]
+    lg = log --graph --oneline --decorate --all

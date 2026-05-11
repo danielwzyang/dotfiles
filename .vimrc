@@ -105,6 +105,10 @@ let g:ale_linters = {
 
 let g:ale_c_clang_options = '-std=c11 -Wall -Wextra -Wpedantic -O0 -g'
 
+autocmd BufRead,BufNewFile *.asm set filetype=nasm
+let g:nasm_is64bit = 1
+let g:ale_asm_nasm_options = '-f elf64'
+
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 100
 let g:ale_completion_autoimport = 1
@@ -125,6 +129,7 @@ set notermguicolors
 set background=dark
 colorscheme gruvbox
 syntax on
+filetype plugin indent on
 set shell=/bin/zsh
 
 let g:lightline = {
