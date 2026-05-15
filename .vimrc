@@ -97,6 +97,7 @@ let mapleader = " "
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>q :close<CR>
+nnoremap <leader>z :tab sp<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
