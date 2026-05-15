@@ -96,7 +96,7 @@ let mapleader = " "
 
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>s :split<CR>
-nnoremap <leader>q :close<CR>
+nnoremap <leader>c :close<CR>
 nnoremap <leader>z :tab sp<CR>
 
 nnoremap <C-h> <C-w>h
@@ -122,7 +122,7 @@ nnoremap <leader>x :x<CR>
 nnoremap <leader>Q :qa!<CR>
 
 " fzf
-nnoremap <C-p> :Files<CR>
+nnoremap <C-n> :Files<CR>
 nnoremap <C-f> :Rg<CR>
 
 " utils
