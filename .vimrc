@@ -108,10 +108,10 @@ tnoremap <C-j> <C-w>j
 tnoremap <C-k> <C-w>k
 tnoremap <C-l> <C-w>l
 
-nnoremap <C-Up> :resize -2<CR>
-nnoremap <C-Down> :resize +2<CR>
-nnoremap <C-Left> :vertical resize -2<CR>
-nnoremap <C-Right> :vertical resize +2<CR>
+nnoremap <leader>< :vertical resize -5<CR>
+nnoremap <leader>> :vertical resize +5<CR>
+nnoremap <leader>- :resize -3<CR>
+nnoremap <leader>+ :resize +3<CR>
 
 nnoremap <leader>t :terminal ++curwin<CR>
 
