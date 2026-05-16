@@ -113,10 +113,23 @@ tnoremap <expr> <Esc> &filetype == 'fzf' ? "\<Esc>" : "\<C-w>N"
 tnoremap <C-w> <C-w>.
 
 " resize windows
-nnoremap <leader>, :vertical resize -5<CR>
-nnoremap <leader>. :vertical resize +5<CR>
 nnoremap <leader>- :resize -3<CR>
 nnoremap <leader>= :resize +3<CR>
+nnoremap <leader>, :call VerticalResize(-5)<CR>
+nnoremap <leader>. :call VerticalResize(+5)<CR>
+
+" adapted from https://github.com/chaoren/vim-resizewindow
+function! VerticalResize(amount)
+    if winnr('$') == 1 | return | endif
+    let l:origin = winnr()
+    let [l:ww, l:wh] = [&winwidth, &winheight]
+    set winwidth=1 winheight=1
+    execute 'wincmd l'
+    let l:at_right = winnr() == l:origin
+    execute l:origin . 'wincmd w'
+    let [&winwidth, &winheight] = [l:ww, l:wh]
+    execute 'vertical resize ' . printf('%+d', l:at_right ? -a:amount : a:amount)
+endfunction
 
 " file operations
 nnoremap <C-s> :update<CR>
