@@ -98,6 +98,7 @@ nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>c :close<CR>
 nnoremap <leader>z :tab sp<CR>
+nnoremap <leader>t :terminal ++curwin<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -108,13 +109,13 @@ tnoremap <expr> <C-h> &filetype == 'fzf' ? "\<C-h>" : "\<C-w>h"
 tnoremap <expr> <C-j> &filetype == 'fzf' ? "\<C-j>" : "\<C-w>j"
 tnoremap <expr> <C-k> &filetype == 'fzf' ? "\<C-k>" : "\<C-w>k"
 tnoremap <expr> <C-l> &filetype == 'fzf' ? "\<C-l>" : "\<C-w>l"
+tnoremap <expr> <C-n> &filetype == 'fzf' ? "\<C-n>" : "\<C-w>N"
 
+" resize windows
 nnoremap <leader>, :vertical resize -5<CR>
 nnoremap <leader>. :vertical resize +5<CR>
 nnoremap <leader>- :resize -3<CR>
 nnoremap <leader>= :resize +3<CR>
-
-nnoremap <leader>t :terminal ++curwin<CR>
 
 " file operations
 nnoremap <C-s> :update<CR>
