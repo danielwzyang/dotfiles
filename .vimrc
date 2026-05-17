@@ -155,6 +155,7 @@ nnoremap <leader>/ :nohlsearch<CR>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap Q @@
+command! Sync execute 'cd ' . resolve('/proc/'.job_info(term_getjob(bufnr('%')))['process'].'/cwd')
 
 " language specific stuff
 autocmd BufRead,BufNewFile *.asm set filetype=nasm
