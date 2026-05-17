@@ -90,6 +90,7 @@ set mouse=
 set hidden
 set splitright
 set splitbelow
+set title
 
 " window management
 let mapleader = " "
@@ -97,8 +98,17 @@ let mapleader = " "
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>c :close<CR>
-nnoremap <leader>z :tab sp<CR>
 nnoremap <leader>t :terminal ++curwin<CR>
+
+nnoremap <leader>z :tab sp<CR>
+nnoremap <leader>j :tabprevious<CR>
+nnoremap <leader>k :tabnext<CR>
+nnoremap <leader>n :tabnew<CR>
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
