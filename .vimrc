@@ -99,6 +99,8 @@ nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>s :split<CR>
 nnoremap <leader>c :close<CR>
 nnoremap <leader>t :terminal ++curwin<CR>
+nnoremap <leader>r <C-w>r
+nnoremap <leader>R <C-w>R
 
 nnoremap <leader>z :tab sp<CR>
 nnoremap <leader>j :tabprevious<CR>
