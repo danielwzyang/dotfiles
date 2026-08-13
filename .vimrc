@@ -158,6 +158,8 @@ vnoremap < <gv
 vnoremap > >gv
 nnoremap Q @@
 command! S execute 'cd ' . resolve('/proc/'.job_info(term_getjob(bufnr('%')))['process'].'/cwd')
+nnoremap mmj :m +1<CR>
+nnoremap mmk :m -2<CR>
 
 " language specific stuff
 autocmd BufRead,BufNewFile *.asm set filetype=nasm
