@@ -10,22 +10,6 @@ alias copy='xclip -selection clipboard'
 
 bindkey '^S' undefined-key
 
-clr() {
-  # compile
-  clang -std=c11 -Wall -Wextra -Wpedantic -O0 -g "$@" && \
-  # run the program with stdin from whatever pipe/redirect you used
-  ./a.out "$@" <&0 && \
-  # delete the executable
-  rm ./a.out
-}
-
-asm() {
-    nasm -f elf64 -o temp.o "$@" && \
-    ld temp.o && \
-    ./a.out "$@" <&0 ; \
-    rm -f ./a.out temp.o
-}
-
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
