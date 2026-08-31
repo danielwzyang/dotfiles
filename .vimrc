@@ -18,7 +18,7 @@ call plug#begin()
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
-    Plug 'dense-analysis/ale'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'rust-lang/rust.vim'
     Plug 'sheerun/vim-polyglot'
     Plug 'itchyny/lightline.vim'
@@ -60,29 +60,6 @@ set formatoptions-=cro
 set hlsearch
 set ignorecase
 set smartcase
-
-" code completion
-set completeopt=menuone,noinsert,noselect
-set omnifunc=ale#completion#OmniFunc
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
-" ale stuff
-let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 100
-let g:ale_completion_autoimport = 1
-
-let g:ale_linters = {
-    \ 'c': ['clangd'],
-    \ 'rust': ['rust-analyzer'],
-    \ }
-
-let g:ale_c_clang_options = '-std=c11 -Wall -Wextra -Wpedantic -O0 -g'
-
-nmap <silent> [e <Plug>(ale_previous_wrap)
-nmap <silent> ]e <Plug>(ale_next_wrap)
 
 " random behavior stuff
 set clipboard=unnamedplus
@@ -161,9 +138,29 @@ command! S execute 'cd ' . resolve('/proc/'.job_info(term_getjob(bufnr('%')))['p
 nnoremap mmj :m +1<CR>
 nnoremap mmk :m -2<CR>
 
-" language specific stuff
-autocmd BufRead,BufNewFile *.asm set filetype=nasm
-let g:nasm_is64bit = 1
-let g:ale_asm_nasm_options = '-f elf64'
-let g:java_ignore_javadoc = 1
+" coc settings taken from https://cocnvim.com/install
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-pyright', 'coc-rust-analyzer', 'coc-go', 'coc-clangd']
 
+set nobackup
+set nowritebackup
+set updatetime=300
+
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
