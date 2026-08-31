@@ -15,7 +15,7 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-gitgutter'
     Plug 'dense-analysis/ale'
