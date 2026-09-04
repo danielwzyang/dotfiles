@@ -4,9 +4,14 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
-            picker = { enabled = true },
-            terminal = { enabled = true },
-            dashboard = { enabled = true },
+            picker = { 
+                enabled = true,
+                win = {
+                    input = {
+                        keys = { ["<Esc>"] = { "close", mode = { "n", "i" } } }
+                    }
+                }
+            },
         },
         keys = {
             { "<C-n>", function() Snacks.picker.files() end },
