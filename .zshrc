@@ -6,6 +6,8 @@ plugins=(git fzf)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.cargo/env
 
+unsetopt auto_cd
+
 alias copy='xclip -selection clipboard'
 
 bindkey '^S' undefined-key
@@ -19,4 +21,3 @@ setopt share_history
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
