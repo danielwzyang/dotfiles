@@ -103,6 +103,7 @@ map("v", ">", ">gv")
 map("n", "Q", "@@")
 map("n", "mmj", ":m +1<CR>")
 map("n", "mmk", ":m -2<CR>")
+map("n", "<leader>e", vim.diagnostic.open_float)
 
 -- misc
 opt.clipboard = "unnamedplus"
