@@ -10,6 +10,8 @@ unsetopt auto_cd
 
 alias copy="xclip -selection clipboard"
 
+alias clang="clang -std=c11 -Wall -Wextra -Wpedantic"
+
 bindkey "^S" undefined-key
 
 HISTSIZE=10000
